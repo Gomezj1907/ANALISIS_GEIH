@@ -189,6 +189,7 @@ qui{
 			merge 1:m directorio secuencia_p orden using "${output}\GEIH2022.dta", gen(`x')
 			
 			save "${output}\GEIH2022.dta", replace
+			export delimited using  "${output}\GEIH2022.csv", replace 
 			local ++w
 	}	
 							
