@@ -1,4 +1,5 @@
-El dofile "01_add_new_var" es un script de configuración diseñado para crear una nueva variable basada en datos obtenidos de la encuesta GEIH (Gran Encuesta Integrada de Hogares) en Colombia. 
+El dofile "01_add_new_var" es un script de configuración diseñado para crear una nueva variable basada en datos obtenidos de 
+la encuesta GEIH (Gran Encuesta Integrada de Hogares) en Colombia. 
 El script sigue un proceso específico para extraer información relevante e integrarla en una base de datos.
 
 Para comenzar, el script crea una base de datos utilizando identificadores únicos como base. 
