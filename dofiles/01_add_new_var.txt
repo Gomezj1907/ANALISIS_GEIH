@@ -18,4 +18,6 @@ Utilizando la información combinada del Diccionario y el cuestionario, el scrip
 extraer las variables deseadas de los datos de la encuesta. 
 
 En general, el dofile "01_add_new_var" sirve como un script de configuración que utiliza los datos de la encuesta GEIH de Colombia. 
-Establece una base de datos, permite a los usuarios seleccionar un módulo de interés, hace referencia a un archivo de Diccionario para las definiciones de las variables, incorpora el cuestionario para el contexto y, finalmente, crea una nueva variable basada en los datos extraídos.
+Establece una base de datos, permite a los usuarios seleccionar un módulo de interés, 
+hace referencia a un archivo de Diccionario para las definiciones de las variables, incorpora el cuestionario para el contexto y, 
+finalmente, crea una nueva variable basada en los datos extraídos.
