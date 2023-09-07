@@ -32,32 +32,44 @@ first_time <- TRUE
 
 choose_model <- c(TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)
 
-
+identificadores <- list()
 modulos <- modulos[choose_model]
 
+# Crear lista con identificadores 
+
+
 if (first_time == TRUE) {
-  
+  i <- 0
   for (mes in meses) {
-    
-    
+    directory_inicial<- paste0("raw/", "mes_", mes, "/",
+                        "Características generales, seguridad social en salud y educación.csv")
+    identificador <- import(directory_inicial)
+    identificador <- identificador |> select(DIRECTORIO, SECUENCIA_P, ORDEN)
+    i <- i + 1
+    identificadores[[i]] <- identificador 
   }
-  
+  first_time <- FALSE
+}
+
+geih2022 <- identificadores[[1]]
+
+
+for (i in 2:10) {
+  geih2022 <- rbind(geih2022,identificadores[[i]])
 }
 
 
 for (mes in meses) {
   for (mod in modulos) {
-    directory <- paste0("/raw/", "mes_", mes, "/", mod, ".csv")
+    directory <- paste0("raw/", "mes_", mes, "/", mod, ".csv")
     read_csv(directory)
   }
-  
-
   
 }
 
 
 
-
+?import
 
 
 
