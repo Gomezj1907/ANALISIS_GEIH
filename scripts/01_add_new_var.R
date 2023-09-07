@@ -54,7 +54,7 @@ if (first_time == TRUE) {
 geih2022 <- identificadores[[1]]
 
 
-for (i in 2:10) {
+for (i in 2:12) {
   geih2022 <- rbind(geih2022,identificadores[[i]])
 }
 
@@ -69,7 +69,6 @@ for (mes in meses) {
 
 
 
-?import
 
 
 
