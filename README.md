@@ -1,4 +1,3 @@
-#Prueba_Alejandro
 # Análisis de la GEIH
 Analisis mercado laboral usando la GEIH
 
