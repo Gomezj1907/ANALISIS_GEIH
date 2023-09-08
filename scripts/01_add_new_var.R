@@ -62,7 +62,8 @@ for (i in 2:12) {
 for (mes in meses) {
   for (mod in modulos) {
     directory <- paste0("raw/", "mes_", mes, "/", mod, ".csv")
-    read_csv(directory)
+    datos_mod <- read_csv(directory)
+    
   }
   
 }
