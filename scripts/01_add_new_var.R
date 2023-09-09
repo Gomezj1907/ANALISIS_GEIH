@@ -109,8 +109,30 @@ for (mes in meses) {
 
 
 
+rm(datos_mod, identificador, identificadores)
+
+geih2022 <- as_tibble(geih2022, .name_repair = janitor::make_clean_names)
+
+geih2022 <- geih2022[!duplicated(as.list(geih2022))]
+
+colnames(geih2022)<- gsub(pattern = "\\_x$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y_1$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y_2$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y_3$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y_4$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y_5$", replacement = "", x = names(geih2022))
+colnames(geih2022)<- gsub(pattern = "\\_y_6$", replacement = "", x = names(geih2022))
+
+geih2022 <- geih2022[!duplicated(as.list(geih2022))]
 
 
+combined_vector <- c(varlist[[1]], varlist[[2]], varlist[[3]], varlist[[4]], varlist[[5]])
+for (i in 1:length(varlist)) {
+  varlist[[i]] <- tolower(varlist[[i]])
+}
+
+geih2022 <- geih2022select(any_of(combined_vector))
 
 
 
