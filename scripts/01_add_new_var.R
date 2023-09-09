@@ -126,13 +126,13 @@ colnames(geih2022)<- gsub(pattern = "\\_y_6$", replacement = "", x = names(geih2
 
 geih2022 <- geih2022[!duplicated(as.list(geih2022))]
 
-
-combined_vector <- c(varlist[[1]], varlist[[2]], varlist[[3]], varlist[[4]], varlist[[5]])
 for (i in 1:length(varlist)) {
   varlist[[i]] <- tolower(varlist[[i]])
 }
+combined_vector <- c(varlist[[1]], varlist[[2]], varlist[[3]], varlist[[4]], varlist[[5]])
 
-geih2022 <- geih2022select(any_of(combined_vector))
+
+geih2022 <- geih2022|>select(any_of(combined_vector))
 
 
 
