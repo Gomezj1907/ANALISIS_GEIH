@@ -10,7 +10,7 @@ require(pacman)
 
 p_load(tidyverse, rio, readr, tidymodels, 
        stargazer, knitr, kableExtra, 
-       readxl, purrr)
+       readxl, purrr, fastDummies)
 
 # Cargar bases mensuales por modulos y limpiar
 
@@ -100,6 +100,7 @@ for (mes in meses) {
     count <- count + 1
     datos_mod <- datos_mod |> 
       select(any_of(varlist[[count]]))
+    datos_mod$id_mod <- count
     geih2022 <- merge(geih2022, datos_mod, by = c("DIRECTORIO", 
                                                   "SECUENCIA_P", "ORDEN"),  all = TRUE)
     
@@ -131,9 +132,8 @@ for (i in 1:length(varlist)) {
 }
 combined_vector <- c(varlist[[1]], varlist[[2]], varlist[[3]], varlist[[4]], varlist[[5]])
 
+combined_vector <- append(combined_vector, "id_mod")
 
-geih2022 <- geih2022|>select(any_of(combined_vector))
-
-
-
+geih2022 <- geih2022 |> 
+  select(any_of(combined_vector)) 
 
