@@ -1,5 +1,7 @@
 ##### Creacion de base de datos a partir de los csv mensuales
 
+
+#Empieza scxript
 # Limpio espacio
 
 rm(list = ls())
