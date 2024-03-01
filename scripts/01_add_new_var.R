@@ -92,6 +92,30 @@ for (i in 1:length(varlist)) {
 }
 
 
+require(pacman)
+
+
+## usar la función p_load de pacman para instalar/llamar las librerías de la clase
+p_load(tidyverse, ## manipular/limpiar conjuntos de datos.
+       rio, ## para leer/escribir archivos desde diferentes formatos. 
+       skimr, ## skim: describir un conjunto de datos
+       janitor, ##  tabyl: frecuencias relativas
+       data.table) ## rbindlist
+
+files <- list.files("input", recursive = T, full.names = T)
+
+# Car generales
+
+cg <- import_list(str_subset(files, "Cabecera - Car")) |>
+  rbindlist(fill = T) |> clean_names()
+
+
+ocu <- import_list(str_subset(files, "Cabecera - Ocu")) |>
+  rbindlist(fill = T) |> clean_names()
+
+geih <- left_join(x = cg, y = ocu, 
+                  by=c("directorio", "secuencia_p", "orden", "hogar"))
+
 
 for (mes in meses) {
   #count the module
